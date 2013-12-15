@@ -9,3 +9,8 @@ task 'auto_build', 'Continually compile', ->
   exec 'coffee -wc -o js/ src/', (err, stdout, stderr) ->
     throw err if err
     console.log stdout + stderr
+
+task 'test', 'Test enigma', ->
+  exec 'karma start karma.conf', (err, stdout, stderr) ->
+    throw err if err
+    console.log stdout + stderr
