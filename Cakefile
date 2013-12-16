@@ -11,6 +11,6 @@ task 'auto_build', 'Continually compile', ->
     console.log stdout + stderr
 
 task 'test', 'Test enigma', ->
-  exec 'karma start karma.conf', (err, stdout, stderr) ->
+  exec 'karma start karma.conf.coffee', (err, stdout, stderr) ->
     throw err if err
     console.log stdout + stderr

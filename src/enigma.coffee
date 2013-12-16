@@ -1,9 +1,7 @@
 letterToNumber = (letter) ->
+  throw "should be single length string" if letter.length != 1
   temp = letter.toLowerCase().charCodeAt(0)
-  if temp == 32
-    temp
-  else if temp < 97 or temp > 122
-    throw "must be a letter between a and z"
+  throw "must be a letter between a and z" if temp < 97 or temp > 122
   temp - 96
 
 numberToLetter = (number) ->
@@ -27,14 +25,9 @@ encode = (message, key) ->
 decode = (message, key) ->
   caesarCipher(message, -key)
 
-#TESTS
-console.log decode(encode("attack", 4), 4)
-
 class Enigma
   constructor: (@state) ->
 
   encodeLetter: (letter) ->
     alert @name + " moved #{meters}m."
-
-a = new Enigma "test"
 
