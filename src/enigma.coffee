@@ -5,8 +5,8 @@ letterToNumber = (letter) ->
   temp - 96
 
 numberToLetter = (number) ->
-  offset = if number == 32 then 0 else 96
-  String.fromCharCode(number + offset)
+  throw "not in range" if number > 26 or number < 1
+  String.fromCharCode(number + 96)
 
 stringToArray = (string) ->
   (letterToNumber char for char in string)

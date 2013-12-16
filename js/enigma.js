@@ -15,9 +15,10 @@
   };
 
   numberToLetter = function(number) {
-    var offset;
-    offset = number === 32 ? 0 : 96;
-    return String.fromCharCode(number + offset);
+    if (number > 26 || number < 1) {
+      throw "not in range";
+    }
+    return String.fromCharCode(number + 96);
   };
 
   stringToArray = function(string) {
