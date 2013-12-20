@@ -1,30 +1,32 @@
-mod = (m, n) ->
-  ((m % n) + n) % n
+class Cipher
+  constructor: (@key) ->
 
-letterToNumber = (letter) ->
-  throw "should be single length string" if letter.length != 1
-  temp = letter.toLowerCase().charCodeAt(0)
-  throw "must be a letter between a and z" if temp < 97 or temp > 122
-  temp - 97
+  mod: (m, n) ->
+    ((m % n) + n) % n
 
-numberToLetter = (number) ->
-  throw "not in range" if number > 25 or number < 0
-  String.fromCharCode(number + 97)
+  letterToNumber: (letter) ->
+    throw "should be single length string" if letter.length != 1
+    temp = letter.toLowerCase().charCodeAt(0)
+    throw "must be a letter between a and z" if temp < 97 or temp > 122
+    temp - 97
 
-stringToArray = (string) ->
-  (letterToNumber char for char in string)
+  numberToLetter: (number) ->
+    throw "not in range" if number > 25 or number < 0
+    String.fromCharCode(number + 97)
 
-arrayToString = (array) ->
-  array.map(numberToLetter).join("")
+  stringToArray: (string) ->
+    (@letterToNumber char for char in string)
 
-caesarCipher = (message, key) ->
-  a = stringToArray(message)
-  b = a.map((i) -> mod((i + key), 26))
-  arrayToString(b)
+  arrayToString: (array) ->
+    array.map(@numberToLetter).join("")
 
-class Enigma
-  constructor: (@state) ->
+class Caeser extends Cipher
+  encode: (message) ->
+    a = @stringToArray(message)
+    b = a.map((i) => @mod((i + @key), 26))
+    @arrayToString(b)
 
-  encodeLetter: (letter) ->
-    alert @name + " moved #{meters}m."
-
+  decode: (message) ->
+    a = @stringToArray(message)
+    b = a.map((i) => @mod((i - @key), 26))
+    @arrayToString(b)
