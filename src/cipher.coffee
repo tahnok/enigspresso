@@ -30,3 +30,4 @@ class Caeser extends Cipher
     a = @stringToArray(message)
     b = a.map((i) => @mod((i - @key), 26))
     @arrayToString(b)
+

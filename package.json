@@ -19,7 +19,8 @@
   "license": "MIT",
   "gitHead": "c584d01e55e1de25bc15aa5a3541a52062e42c1e",
   "dependencies": {
-    "coffee-script": "~1.6.3"
+    "coffee-script": "~1.6.3",
+    "snockets": "~1.3.8"
   },
   "devDependencies": {
     "karma-script-launcher": "~0.1.0",

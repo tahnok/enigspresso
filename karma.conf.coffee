@@ -12,7 +12,8 @@ module.exports = (config) ->
 
     # list of files / patterns to load in the browser
     files: [
-      'src/*.coffee',
+      'src/cipher.coffee',
+      'src/caesar.coffee'
       'test/*.coffee'
     ],
 
