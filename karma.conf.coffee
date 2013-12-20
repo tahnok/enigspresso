@@ -13,7 +13,8 @@ module.exports = (config) ->
     # list of files / patterns to load in the browser
     files: [
       'src/cipher.coffee',
-      'src/caesar.coffee'
+      'src/caesar.coffee',
+      'src/enigma.coffee',
       'test/*.coffee'
     ],
 
