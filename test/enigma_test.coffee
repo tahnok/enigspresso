@@ -1,6 +1,6 @@
 describe "The enigma machine", ->
   beforeEach ->
-    @cipher = new Enigma(1)
+    @cipher = new Enigma({wheels: ["I", "II", "III"]})
 
   it "should encode", ->
     expect(@cipher.encode("aaa")).toBe("hjk")
@@ -26,4 +26,4 @@ describe "The enigma machine", ->
     expect(@cipher.wheel1[0]).toBe(4)
 
   it "should test", ->
-    console.log @cipher.stringToArray("BDFHJLCPRTXVZNYEIWGAKMUSQO")
+    console.log @cipher.stringToArray("FVPJIAOYEDRZXWGCTKUQSBNMHL")
