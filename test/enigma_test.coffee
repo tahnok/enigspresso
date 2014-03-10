@@ -25,5 +25,12 @@ describe "The enigma machine", ->
     @cipher.reset()
     expect(@cipher.wheel1[0]).toBe(4)
 
-  it "should test", ->
-    console.log @cipher.stringToArray("FVPJIAOYEDRZXWGCTKUQSBNMHL")
+  it "should encode more than 26 letters", ->
+    plain = "thexquickxbrownxfoxxjumpedxoverxthexlazyxdog"
+    cipher = "vmnekloevgzbvywndnogylrfonwfuxphknugjyxwvopf"
+    expect(@cipher.encode(plain)).toBe(cipher)
+
+  it "should decode more than 26 letters", ->
+    plain = "thexquickxbrownxfoxxjumpedxoverxthexlazyxdog"
+    cipher = "vmnekloevgzbvywndnogylrfonwfuxphknugjyxwvopf"
+    expect(@cipher.decode(cipher)).toBe(plain)
